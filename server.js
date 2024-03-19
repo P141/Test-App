@@ -37,25 +37,4 @@ app.get('/admin/login', (req, res) => {
 });
 
 app.get('/admin/data', (req, res) => {
-  if (isAdminLoggedIn) {
-    res.send('Confidential data for admin');
-  } else {
-    res.send('Access denied. Please log in as admin.');
-  }
-});
-
-// Server-side request forgery (SSRF)
-app.get('/fetch', (req, res) => {
-  const { url } = req.query;
-  axios.get(url) // This can be used for SSRF attack
-    .then(response => {
-      res.send(response.data);
-    })
-    .catch(error => {
-      res.status(500).send('Error fetching URL');
-    });
-});
-
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
-});
+  if (isAdminLoggedIn
