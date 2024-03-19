@@ -13,49 +13,50 @@
     <nav>
         <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="/transfer">Transfer Money</a></li>
-            <li><a href="/admin/login">Admin Login</a></li>
+            <li><a href="#" onclick="showTransferForm()">Transfer Money</a></li>
+            <li><a href="#" onclick="showAdminLoginForm()">Admin Login</a></li>
         </ul>
     </nav>
     <main>
-        <section>
+        <section id="homeSection">
             <h2>Home Page</h2>
             <p>Enter your name to get a personalized greeting:</p>
-            <form action="/xss" method="GET">
+            <form id="nameForm">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name">
-                <button type="submit">Submit</button>
+                <button type="button" onclick="submitName()">Submit</button>
             </form>
+            <div id="greeting"></div>
         </section>
-        <section>
+        <section id="transferSection" style="display:none;">
             <h2>Transfer Money</h2>
-            <form action="/transfer" method="POST">
+            <form id="transferForm">
                 <label for="amount">Amount:</label>
                 <input type="text" id="amount" name="amount">
                 <label for="to">To:</label>
                 <input type="text" id="to" name="to">
-                <button type="submit">Transfer</button>
+                <button type="button" onclick="transferMoney()">Transfer</button>
             </form>
         </section>
-        <section>
+        <section id="adminSection" style="display:none;">
             <h2>Admin Section</h2>
-            <p>Access the admin data after logging in:</p>
-            <form action="/admin/login" method="GET">
+            <form id="adminLoginForm">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username">
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password">
-                <button type="submit">Login</button>
+                <button type="button" onclick="loginAdmin()">Login</button>
             </form>
         </section>
-        <section>
+        <section id="fetchSection">
             <h2>Fetch URL</h2>
             <p>Fetch data from a URL:</p>
-            <form action="/fetch" method="GET">
+            <form id="fetchForm">
                 <label for="url">URL:</label>
                 <input type="text" id="url" name="url">
-                <button type="submit">Fetch</button>
+                <button type="button" onclick="fetchData()">Fetch</button>
             </form>
+            <div id="fetchResult"></div>
         </section>
     </main>
     <footer>
