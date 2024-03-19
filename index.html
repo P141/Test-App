@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vulnerable Website</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Our Website</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/transfer">Transfer Money</a></li>
+            <li><a href="/admin/login">Admin Login</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <h2>Home Page</h2>
+            <p>Enter your name to get a personalized greeting:</p>
+            <form action="/xss" method="GET">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+        <section>
+            <h2>Transfer Money</h2>
+            <form action="/transfer" method="POST">
+                <label for="amount">Amount:</label>
+                <input type="text" id="amount" name="amount">
+                <label for="to">To:</label>
+                <input type="text" id="to" name="to">
+                <button type="submit">Transfer</button>
+            </form>
+        </section>
+        <section>
+            <h2>Admin Section</h2>
+            <p>Access the admin data after logging in:</p>
+            <form action="/admin/login" method="GET">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password">
+                <button type="submit">Login</button>
+            </form>
+        </section>
+        <section>
+            <h2>Fetch URL</h2>
+            <p>Fetch data from a URL:</p>
+            <form action="/fetch" method="GET">
+                <label for="url">URL:</label>
+                <input type="text" id="url" name="url">
+                <button type="submit">Fetch</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Vulnerable Website. All rights reserved.</p>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>
